@@ -1,0 +1,80 @@
+{
+  "componentsToGenerate": [
+    "Navigation",
+    "Hero",
+    "FeaturedProjects",
+    "ServicesGrid",
+    "ClientLogos",
+    "TeamHighlight",
+    "AboutStory",
+    "TeamBios",
+    "CompanyValues",
+    "ServiceCategories",
+    "ProcessSection",
+    "PricingTiers",
+    "PortfolioGrid",
+    "ProjectFilter",
+    "CaseStudyCard",
+    "TestimonialSection",
+    "ContactForm",
+    "Newsletter",
+    "Footer"
+  ],
+  "estimatedChallenges": [
+    {
+      "component": "Navigation",
+      "challenge": "Active page state management across multiple pages",
+      "mitigation": "Use Next.js usePathname hook to detect current page and apply active styles"
+    },
+    {
+      "component": "PortfolioGrid",
+      "challenge": "Complex filtering logic with multiple categories and smooth transitions",
+      "mitigation": "Use state management for active filters, map through filtered array with proper keys, add CSS transitions"
+    },
+    {
+      "component": "FeaturedProjects",
+      "challenge": "Image carousel with smooth transitions and responsive behavior",
+      "mitigation": "Use controlled state for active slide, implement touch/swipe handlers, ensure images are optimized"
+    },
+    {
+      "component": "TeamBios",
+      "challenge": "Dynamic grid layout that adapts to different team sizes",
+      "mitigation": "Use CSS Grid with auto-fit/minmax for responsive columns, ensure consistent card heights"
+    },
+    {
+      "component": "ProjectFilter",
+      "challenge": "Multiple filter types (industry, service) working together",
+      "mitigation": "Maintain filter state object, combine filter logic with AND/OR operators, clear visual feedback"
+    },
+    {
+      "component": "ContactForm",
+      "challenge": "Multi-step form with validation and state persistence",
+      "mitigation": "Use controlled inputs with validation, step navigation with progress indicator, error handling"
+    },
+    {
+      "component": "CaseStudyCard",
+      "challenge": "Expandable content with smooth animations and image galleries",
+      "mitigation": "Toggle state for expansion, CSS transitions for height changes, lazy load expanded content"
+    },
+    {
+      "component": "ServicesGrid",
+      "challenge": "Hover effects and interactive elements that work on touch devices",
+      "mitigation": "Implement both hover and click/tap interactions, use touch-friendly target sizes"
+    }
+  ],
+  "fixerContext": {
+    "expectedStructure": "Simple Next.js app. Components in components/ folder at root. app/page.tsx imports from ../components/",
+    "importPaths": "Use '../components/ComponentName' from app/page.tsx",
+    "commonIssues": [
+      "Missing 'use client' directive on interactive components (Navigation, ProjectFilter, ContactForm, FeaturedProjects)",
+      "Import path mismatches - ensure all imports use '../components/' from app/page.tsx",
+      "Image optimization - use Next.js Image component with proper width/height",
+      "Key props missing in mapped arrays (portfolio items, team members, services)",
+      "State management for filters and forms - ensure useState is imported and used correctly",
+      "Responsive breakpoints - verify mobile, tablet, desktop layouts work properly",
+      "Link components - use Next.js Link for internal navigation between pages",
+      "CSS modules or Tailwind classes - ensure styling approach is consistent",
+      "Accessibility - check for alt text on images, proper heading hierarchy, ARIA labels on interactive elements"
+    ]
+  }
+}
